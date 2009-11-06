@@ -1,7 +1,8 @@
 # Handles all requests to the root of the HRF
 
 get '/' do
-  'hello'
+  @extensions = Extension.all
+  erb :index
 end
 
 put '/' do
