@@ -6,3 +6,8 @@ gem 'builder'
 gem 'sqlite3-ruby'
 gem 'dm-core'
 gem 'do_sqlite3'
+
+gem 'rack-test', :only => :test
+gem 'thoughtbot-shoulda', :only => :test
+
+source "http://gems.github.com"
