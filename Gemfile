@@ -10,5 +10,6 @@ gem 'do_sqlite3'
 
 gem 'rack-test', :only => :test
 gem 'thoughtbot-shoulda', :only => :test
+gem 'nokogiri', :only => :test
 
 source "http://gems.github.com"

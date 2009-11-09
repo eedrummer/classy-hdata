@@ -1,4 +1,5 @@
 require 'classy-hdata'
+require 'nokogiri'
 require 'test/unit'
 require 'rack/test'
 require 'shoulda'
