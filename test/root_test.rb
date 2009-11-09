@@ -45,5 +45,22 @@ class RootTest < HDataTest
         assert_equal 201, last_response.status
       end
     end
+    
+    should "provide a root.xml document describing the extensions and sections" do
+      extension = Extension.new(:type_id  => 'http://projecthdata.org/hdata/schemas/2009/06/allergy', :requirement => 'mandatory')
+      extension.save
+      section = Section.new(:name => 'Allergies', :path => 'allergies')
+      section.extension = extension
+      section.save
+      
+      get '/root.xml'
+      assert last_response.ok?
+      doc = Nokogiri::XML.parse(last_response.body)
+      extension_element = doc.xpath('//hrf:root/hrf:extensions/hrf:extension[text()="http://projecthdata.org/hdata/schemas/2009/06/allergy"]', 
+                                   {'hrf' => "http://projecthdata.org/hdata/schemas/2009/06/core"})
+      assert !extension.empty?
+      section_element = doc.xpath('//hrf:root/hrf:sections/hrf:section[@name="Allergies"]', {'hrf' => "http://projecthdata.org/hdata/schemas/2009/06/core"})
+      assert !section_element.empty?
+    end
   end
 end
