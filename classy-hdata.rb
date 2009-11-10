@@ -8,4 +8,7 @@ require 'lib/models'
 
 # Load the web request handlers
 require 'erb'
+require 'builder'
 require 'lib/root'
+
+START_TIME = Time.now

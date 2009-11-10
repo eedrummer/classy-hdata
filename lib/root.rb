@@ -16,6 +16,13 @@ post '/' do
   handle_section if params[:type].eql?('section')
 end
 
+get '/root.xml' do
+  @extensions = Extension.all
+  content_type 'application/xml', :charset => 'utf-8'
+  builder :root
+end
+
+
 def check_params
   unless ['extension', 'section'].include? params[:type]
     halt 400, "Your request must specify a type of either section or extension"
