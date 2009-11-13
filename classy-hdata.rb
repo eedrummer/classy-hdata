@@ -4,6 +4,7 @@ require 'sinatra'
 # Set up the models
 require 'dm-core'
 require 'dm-validations'
+require 'dm-timestamps'
 require 'lib/models'
 
 # Load the web request handlers

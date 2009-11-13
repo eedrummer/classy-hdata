@@ -18,6 +18,8 @@ class Section
   property :id, Serial
   property :path, String
   property :name, String
+  property :created_at, DateTime
+  property :updated_at, DateTime
   
   validates_is_unique :path, :message => "A section already exists at that path"
   validates_present :name, :path, :message => "A section must specify a name and path"
@@ -31,5 +33,8 @@ class Document
   
   property :id, Serial
   property :contents, Text
+  property :created_at, DateTime
+  property :updated_at, DateTime
+  
   belongs_to :section
 end

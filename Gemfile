@@ -6,6 +6,7 @@ gem 'builder'
 gem 'sqlite3-ruby'
 gem 'dm-core'
 gem 'dm-validations'
+gem 'dm-timestamps'
 gem 'do_sqlite3'
 
 gem 'rack-test', :only => :test
