@@ -3,14 +3,15 @@ gem 'sinatra'
 gem 'builder'
 
 # For the data store
-gem 'sqlite3-ruby'
 gem 'dm-core'
 gem 'dm-validations'
 gem 'dm-timestamps'
 gem 'do_sqlite3'
 
-gem 'rack-test', :only => :test
-gem 'thoughtbot-shoulda', :only => :test
-gem 'nokogiri', :only => :test
+only :test do
+  gem 'rack-test', :require_as => 'rack/test'
+  gem 'thoughtbot-shoulda', :require_as => 'shoulda'
+  gem 'nokogiri'
+end
 
 source "http://gems.github.com"
