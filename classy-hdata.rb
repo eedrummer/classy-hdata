@@ -4,5 +4,6 @@ require 'lib/models'
 # Load the web request handlers
 require 'erb'
 require 'lib/root'
+require 'lib/section'
 
 START_TIME = Time.now
