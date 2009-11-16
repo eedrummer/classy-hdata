@@ -23,6 +23,7 @@ class SectionTest < HDataTest
       assert_equal 201, last_response.status
       section = Section.first(:path => 'allergies')
       assert_equal 1, section.documents.count
+      assert_equal "http://localhost:4567/allergies/#{section.documents.first.id}", last_response.body
     end
     
   end
