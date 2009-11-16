@@ -17,5 +17,13 @@ class SectionTest < HDataTest
       assert last_response.ok?
     end
     
+    should 'allow the POSTing of a section document' do
+      upload_file = Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), '..', 'fixtures', 'allergy1.xml'), 'application/xml')
+      post '/allergies', {:type => 'document', :content => upload_file}
+      assert_equal 201, last_response.status
+      section = Section.first(:path => 'allergies')
+      assert_equal 1, section.documents.count
+    end
+    
   end
 end

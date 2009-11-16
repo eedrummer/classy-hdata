@@ -6,6 +6,7 @@ gem 'builder'
 gem 'dm-core'
 gem 'dm-validations'
 gem 'dm-timestamps'
+gem 'dm-aggregates'
 gem 'do_sqlite3'
 
 only :test do
