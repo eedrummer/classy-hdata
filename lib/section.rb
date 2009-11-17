@@ -18,3 +18,16 @@ post %r{/([\w]+)/?} do |section_path|
     status 400, "Could not find the section"
   end
 end
+
+delete %r{/([\w]+)/?} do |section_path|
+  @section = Section.first(:path => section_path)
+  if @section
+    @section.documents.each do |document|
+      document.destroy!
+    end
+    @section.destroy!
+    status 204
+  else
+    status 404
+  end
+end
