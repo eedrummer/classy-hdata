@@ -1,4 +1,4 @@
-get %r{/([\w]+)/?} do |section_path|
+get %r{/(\w+)/?$} do |section_path|
   @section = Section.first(:path => section_path)
   if @section
     builder :section_atom
@@ -7,7 +7,7 @@ get %r{/([\w]+)/?} do |section_path|
   end
 end
 
-post %r{/([\w]+)/?} do |section_path|
+post %r{/(\w+)/?$} do |section_path|
   @section = Section.first(:path => section_path)
   if @section
     doc = Document.new(:content => params[:content][:tempfile], :section => @section)
@@ -19,7 +19,7 @@ post %r{/([\w]+)/?} do |section_path|
   end
 end
 
-delete %r{/([\w]+)/?} do |section_path|
+delete %r{/(\w+)/?$} do |section_path|
   @section = Section.first(:path => section_path)
   if @section
     @section.documents.each do |document|
