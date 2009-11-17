@@ -1,13 +1,25 @@
 get %r{/(\w+)/(\d+)} do |section_path, document_id|
+  section, document = find_document(section_path, document_id)
+  document.content
+end
+
+put %r{/(\w+)/(\d+)} do |section_path, document_id|
+  section, document = find_document(section_path, document_id)
+  document.content = request.body.read
+  document.save
+  status 200
+end
+
+def find_document(section_path, document_id)
   section = Section.first(:path => section_path)
   if section
     document = section.documents.get(document_id.to_i)
-    if document
-      document.content
-    else
-      status 404
+    unless document
+      halt 404
     end
   else
-    status 404
+    halt 404
   end
+  
+  return section, document
 end
