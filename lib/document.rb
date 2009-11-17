@@ -10,6 +10,12 @@ put %r{/(\w+)/(\d+)} do |section_path, document_id|
   status 200
 end
 
+delete %r{/(\w+)/(\d+)} do |section_path, document_id|
+  section, document = find_document(section_path, document_id)
+  document.destroy!
+  status 204
+end
+
 def find_document(section_path, document_id)
   section = Section.first(:path => section_path)
   if section

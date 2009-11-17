@@ -20,5 +20,11 @@ class DocumentTest < HDataTest
       product_element = doc.xpath('//allergy/product[text()="Cheese"]')
       assert !product_element.empty?
     end
+    
+    should "be able to delete a document" do
+      delete "/#{@section.path}/#{@document.id}"
+      assert_equal 204, last_response.status
+      assert_equal 0, @section.documents.count
+    end
   end
 end
