@@ -1,7 +1,34 @@
 Classy hData
 ------------
 
-The following project is an implementation of the [hData Network Transport](http://www.projecthdata.org/documents.html) using [Sinatra](http://www.sinatrarb.com/) and [DataMapper](http://datamapper.org/). More to follow...
+The following project is an implementation of the [hData Network Transport](http://www.projecthdata.org/documents.html) using [Sinatra](http://www.sinatrarb.com/) and [DataMapper](http://datamapper.org/).
+
+Setup and Running
+-----------------
+
+This project uses [Bundler](http://github.com/wycats/bundler) to manage its dependencies. To setup run:
+
+    sudo gem install bundler
+
+Then you can grab the necessary gems to run the project by:
+
+    gem bundle update
+
+Finally you can run the application with:
+
+    ruby run.rb
+
+Point your browser to http://localhost:4567 to get started. For working with the hData Network Transport, I would recommend using the [Poster Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/2691).
+
+Other Documentation
+-------------------
+
+You can find a description of the process I went through to create this code on [my blog](http://gregorowicz.blogspot.com/2009/11/classy-hdata.html).
+
+To Do
+-----
+1. Add a proper config.ru file
+2. Implement metadata POSTing
 
 License
 -------
