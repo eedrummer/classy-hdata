@@ -1,3 +1,5 @@
+source :gemcutter
+
 # For the web interface
 gem 'sinatra'
 gem 'builder'
@@ -9,10 +11,8 @@ gem 'dm-timestamps'
 gem 'dm-aggregates'
 gem 'do_sqlite3'
 
-only :test do
-  gem 'rack-test', :require_as => 'rack/test'
-  gem 'thoughtbot-shoulda', :require_as => 'shoulda'
+group :test do
+  gem 'rack-test', :require => 'rack/test'
+  gem 'thoughtbot-shoulda', :require => 'shoulda'
   gem 'nokogiri'
 end
-
-source "http://gems.github.com"
